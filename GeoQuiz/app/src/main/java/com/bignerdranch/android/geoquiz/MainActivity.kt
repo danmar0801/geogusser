@@ -41,6 +41,10 @@ class MainActivity : AppCompatActivity() {
             currentIndex = (currentIndex + 1) %questionBank.size
             updateQuestion()
         }
+        binding.prevButton.setOnClickListener {
+            currentIndex = (currentIndex - 1) %questionBank.size
+            updateQuestion()
+        }
 
         updateQuestion()
 
@@ -49,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         val questionTextResId = questionBank[currentIndex].textResId
         binding.questionTextView.setText(questionTextResId)
     }
+
 
     private fun checkAnswer(userAnswer: Boolean) {
         val correctAnswer = questionBank[currentIndex].answer
